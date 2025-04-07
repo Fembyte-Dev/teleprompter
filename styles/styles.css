@@ -1,0 +1,497 @@
+ /* Variables CSS (root) */
+ :root {
+     /* Modo claro */
+     --color-primary: #F5A9E1;
+     --color-secondary: #D291BC;
+     --color-accent: #FF85B3;
+     --color-background: #FFF0F5;
+     --color-panel: #FFFFFF;
+     --color-border: #D291BC;
+     --color-text: #6D4F6D;
+     --color-button: #FFCCE5;
+     --color-button-hover: #FFB6D9;
+     --color-info-box: #FFF0F5;
+     --shadow-default: 3px 3px 8px rgba(211, 145, 188, 0.3);
+     --border-width: 3px;
+     --border-radius: 15px;
+
+     /* Modo oscuro (femenino) */
+     --dark-color-primary: #9C6B98;
+     --dark-color-secondary: #7D5BA6;
+     --dark-color-accent: #FF5988;
+     --dark-color-background: #2D2B3D;
+     --dark-color-panel: #3D3B4F;
+     --dark-color-border: #7D5BA6;
+     --dark-color-text: #F0E6FF;
+     --dark-color-button: #9C6B98;
+     --dark-color-button-hover: #B282AE;
+     --dark-color-info-box: #3D3B4F;
+     --dark-shadow-default: 3px 3px 8px rgba(0, 0, 0, 0.5);
+ }
+
+ /* Clase para activar el modo oscuro */
+ .dark-mode {
+     --color-primary: var(--dark-color-primary);
+     --color-secondary: var(--dark-color-secondary);
+     --color-accent: var(--dark-color-accent);
+     --color-background: var(--dark-color-background);
+     --color-panel: var(--dark-color-panel);
+     --color-border: var(--dark-color-border);
+     --color-text: var(--dark-color-text);
+     --color-button: var(--dark-color-button);
+     --color-button-hover: var(--dark-color-button-hover);
+     --color-info-box: var(--dark-color-info-box);
+     --shadow-default: var(--dark-shadow-default);
+ }
+
+ /* Estilos generales */
+ body {
+     font-family: 'Comic Sans MS', cursive, sans-serif;
+     background-color: var(--color-background);
+     margin: 0;
+     padding: 20px;
+     color: var(--color-text);
+ }
+
+ /* Contenedor principal con borde doble estilo cartoon */
+ .app-container {
+     border: 8px double var(--color-border);
+     border-radius: var(--border-radius);
+     margin: 0 auto;
+     max-width: 90%;
+     height: 90vh;
+     /* Altura fija en lugar de min-height */
+     padding: 15px;
+     background-color: var(--color-panel);
+     box-shadow: var(--shadow-default);
+     display: flex;
+     flex-direction: column;
+     box-sizing: border-box;
+     overflow: hidden;
+     /* Evita que el contenido se desborde */
+ }
+
+ /* Modificación del inner-container */
+ .inner-container {
+     border: var(--border-width) solid var(--color-border);
+     border-radius: var(--border-radius);
+     padding: 10px;
+     display: flex;
+     flex: 1;
+     box-sizing: border-box;
+     background-color: var(--color-primary);
+     background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+     min-height: 0;
+     overflow: hidden;
+     /* Evita que el contenido se desborde */
+ }
+
+ /* Panel principal (izquierda) */
+ .main-panel {
+     flex: 3;
+     border: 3px solid var(--color-border);
+     border-radius: 5px;
+     margin-right: 10px;
+     padding: 10px;
+     height: 100%;
+     /* Cambiado de min-height a height para que tenga tamaño fijo */
+     background-color: var(--color-panel);
+     position: relative;
+     overflow-y: auto;
+     /* Mantiene el scroll vertical */
+     overflow-x: hidden;
+     /* Evita scroll horizontal */
+     scrollbar-width: thin;
+     scrollbar-color: var(--color-secondary) var(--color-panel);
+ }
+
+ /* Estilos para la barra de desplazamiento personalizada */
+ .main-panel::-webkit-scrollbar {
+     width: 12px;
+ }
+
+ .main-panel::-webkit-scrollbar-track {
+     background: var(--color-panel);
+     border-radius: var(--border-radius);
+     border: 1px solid var(--color-border);
+ }
+
+ .main-panel::-webkit-scrollbar-thumb {
+     background-color: var(--color-secondary);
+     border-radius: var(--border-radius);
+     border: 2px solid var(--color-panel);
+ }
+
+ .main-panel::-webkit-scrollbar-thumb:hover {
+     background-color: var(--color-accent);
+ }
+
+ /* Panel de controles (derecha) */
+ .control-panel {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+ }
+
+ /* Botones con estilo femenino */
+ .button {
+     background-color: var(--color-button);
+     border: 2px solid var(--color-border);
+     border-radius: var(--border-radius);
+     padding: 10px 18px;
+     margin: 8px 0;
+     font-weight: bold;
+     text-align: center;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: var(--shadow-default);
+     color: var(--color-text);
+     letter-spacing: 0.5px;
+ }
+
+ .button:hover {
+     transform: scale(1.05);
+     background-color: var(--color-button-hover);
+     box-shadow: 4px 4px 10px rgba(211, 145, 188, 0.4);
+ }
+
+ /* Controles de entrada */
+ .control-group {
+     display: flex;
+     align-items: center;
+     margin-bottom: 10px;
+ }
+
+ .control-label {
+     flex: 1;
+     font-weight: bold;
+ }
+
+ .control-input {
+     flex: 1;
+     border: 3px solid var(--color-border);
+     border-radius: 5px;
+     padding: 5px;
+ }
+
+ /* Cuadros de información */
+ .info-box {
+     border: 2px solid var(--color-border);
+     border-radius: var(--border-radius);
+     padding: 12px;
+     margin: 12px 0;
+     flex: 1;
+     /* Hace que ocupe el espacio restante */
+     background-color: var(--color-info-box);
+     box-shadow: var(--shadow-default);
+     transition: all 0.3s ease;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .info-box:hover {
+     transform: translateY(-2px);
+     box-shadow: 4px 4px 10px rgba(211, 145, 188, 0.4);
+ }
+
+ /* Estilos para el cuadro de emoción */
+ .emotion-box {
+     border: 3px solid var(--color-border);
+     border-radius: var(--border-radius);
+     padding: 0;
+     margin: 12px 0;
+     background-color: var(--color-info-box);
+     box-shadow: var(--shadow-default);
+     display: flex;
+     flex-direction: column;
+     overflow: hidden;
+ }
+
+ .emotion-title {
+     background-color: var(--color-panel);
+     color: var(--color-text);
+     font-weight: bold;
+     text-align: center;
+     padding: 8px 0;
+     border-bottom: 2px solid var(--color-border);
+     position: relative;
+ }
+
+ .emotion-title::after {
+     content: "";
+     position: absolute;
+     left: 10%;
+     right: 10%;
+     bottom: -1px;
+     height: 1px;
+     background-color: var(--color-border);
+ }
+
+ .emotion-content {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 15px;
+     min-height: 120px;
+ }
+
+ .emotion-emoji {
+     font-size: 60px;
+     line-height: 1;
+ }
+
+ .emotion-name {
+     background-color: var(--color-panel);
+     color: var(--color-text);
+     text-align: center;
+     padding: 8px 0;
+     font-weight: bold;
+     border-top: 2px solid var(--color-border);
+     text-transform: uppercase;
+ }
+
+ .info-box p:first-child {
+     color: var(--color-secondary);
+     font-weight: bold;
+     border-bottom: 1px dashed var(--color-border);
+     padding-bottom: 5px;
+     margin-top: 0;
+     font-size: 18px;
+     /* Título más grande */
+ }
+
+ .info-box p:last-child {
+     font-size: 16px;
+     /* Contenido más grande */
+     flex: 1;
+     /* Hace que ocupe el espacio disponible */
+     margin-bottom: 0;
+ }
+
+ /* Contenedor fijo para el botón de añadir */
+ .button-container {
+     position: fixed;
+     left: 0;
+     right: 0;
+     bottom: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     pointer-events: none;
+     /* Permite hacer clic en elementos debajo */
+     z-index: 100;
+ }
+
+ /* Botón de añadir */
+ .add-button {
+     position: relative;
+     font-size: 24px;
+     width: 45px;
+     height: 45px;
+     line-height: 40px;
+     text-align: center;
+     background-color: var(--color-accent);
+     border: 2px solid var(--color-border);
+     border-radius: 50%;
+     cursor: pointer;
+     box-shadow: var(--shadow-default);
+     color: white;
+     transition: all 0.3s ease;
+     pointer-events: auto;
+     /* Permite interactuar con el botón */
+ }
+
+ .add-button:hover {
+
+     box-shadow: 4px 4px 10px rgba(211, 145, 188, 0.5);
+ }
+
+ /* Botón de cambio de tema */
+ .theme-toggle {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     width: 35px;
+     height: 35px;
+     border-radius: 50%;
+     background-color: var(--color-button);
+     border: 2px solid var(--color-border);
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-shadow: var(--shadow-default);
+     transition: all 0.3s ease;
+     z-index: 100;
+ }
+
+ .theme-toggle:hover {
+     transform: scale(1.1);
+     box-shadow: 4px 4px 10px rgba(211, 145, 188, 0.4);
+ }
+
+ .theme-toggle i {
+     font-size: 18px;
+     color: var(--color-text);
+ }
+
+ /* Texto debajo del botón */
+ .button-label {
+     position: relative;
+     font-size: 12px;
+     width: 100px;
+     text-align: center;
+     margin-top: 5px;
+     pointer-events: auto;
+     /* Permite interactuar con la etiqueta */
+ }
+
+ /* Estilos para las escenas */
+ .scene {
+     border: 3px solid var(--color-border);
+     border-radius: 12px;
+     padding: 15px;
+     margin: 10px 0;
+     background-color: var(--color-panel);
+     position: relative;
+     box-shadow: var(--shadow-default);
+     transition: all 0.3s ease;
+ }
+
+ .scene:hover {
+     transform: translateY(-2px);
+     box-shadow: 4px 4px 10px rgba(211, 145, 188, 0.4);
+ }
+
+ .scene-title {
+     font-weight: bold;
+     margin-bottom: 10px;
+     color: var(--dark-color-border)
+ }
+
+ .scene-content {
+     margin-bottom: 15px;
+ }
+
+ .scene-controls {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     padding: 15px 10px 5px;
+     border-top: 2px dashed var(--color-border);
+     background-color: var(--color-info-box);
+     border-radius: 0 0 10px 10px;
+     position: relative;
+ }
+
+ .scene-controls::before {
+     content: "Controles de escena";
+     position: absolute;
+     top: -10px;
+     left: 50%;
+     transform: translateX(-50%);
+     background-color: var(--color-accent);
+     color: white;
+     font-size: 12px;
+     padding: 2px 10px;
+     border-radius: 10px;
+     border: 1px solid var(--color-border);
+ }
+
+ .scene-control-group {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin: 0 5px 10px;
+     position: relative;
+     flex: 1;
+     min-width: 80px;
+     max-width: 120px;
+ }
+
+ .scene-control-label {
+     font-size: 13px;
+     font-weight: bold;
+     margin-bottom: 5px;
+     color: var(--color-secondary);
+     text-align: center;
+ }
+
+ .scene-control-input {
+     width: 100%;
+     border: 2px solid var(--color-border);
+     border-radius: 8px;
+     padding: 5px;
+     transition: all 0.2s ease;
+     text-align: center;
+ }
+
+ .scene-control-input:focus {
+     border-color: var(--color-accent);
+     box-shadow: 0 0 5px var(--color-accent);
+     outline: none;
+ }
+
+ .scene-control-input[type="range"] {
+     height: 8px;
+     -webkit-appearance: none;
+     margin: 10px 0;
+     background: var(--color-panel);
+ }
+
+ .scene-control-input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+     height: 20px;
+     width: 20px;
+     border-radius: 50%;
+     background: var(--color-accent);
+     border: 2px solid var(--color-border);
+     cursor: pointer;
+ }
+
+ .scene-control-tooltip {
+     position: absolute;
+     bottom: -20px;
+     font-size: 10px;
+     color: var(--color-text);
+     opacity: 0;
+     transition: opacity 0.3s ease;
+     width: 100%;
+     text-align: center;
+ }
+
+ .scene-control-group:hover .scene-control-tooltip {
+     opacity: 1;
+ }
+
+ .scene-control-buttons {
+     display: flex;
+     justify-content: flex-end;
+     width: 100%;
+     margin-top: 5px;
+ }
+
+ .scene-control-btn {
+     background-color: var(--color-button);
+     border: 1px solid var(--color-border);
+     border-radius: 5px;
+     width: 25px;
+     height: 25px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-left: 5px;
+     cursor: pointer;
+     transition: all 0.2s ease;
+ }
+
+ .scene-control-btn:hover {
+     background-color: var(--color-button-hover);
+     transform: scale(1.1);
+ }
+
+ .scene-control-btn i {
+     font-size: 12px;
+     color: var(--color-text);
+ }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleprompter</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Botón para cambiar entre modo claro y oscuro -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <div class="app-container">
+        <div class="inner-container">
+            <div class="main-panel">
+                <!-- Área principal donde se muestran las escenas -->
+
+                <!-- Ejemplo de una escena con sus controles propios -->
+                <div class="scene">
+                    <div class="scene-title">Escena 1: Introducción</div>
+                    <div class="scene-content">
+                        Contenido de la primera escena. Aquí iría el texto o elementos de esta escena.
+                    </div>
+                    <div class="scene-controls">
+                        <div class="scene-control-group">
+                            <span class="scene-control-label">Velocidad</span>
+                            <input type="range" class="scene-control-input" min="1" max="100" value="70">
+                            <span class="scene-control-tooltip">Ajusta la velocidad de lectura</span>
+                        </div>
+                        <div class="scene-control-group">
+                            <span class="scene-control-label">Tiempo</span>
+                            <input type="text" class="scene-control-input" value="5s">
+                            <span class="scene-control-tooltip">Duración en segundos</span>
+                        </div>
+                        <div class="scene-control-group">
+                            <span class="scene-control-label">Comenzar</span>
+                            <button class="scene-control-input start-button" style="cursor: pointer; background-color: var(--color-button);">Iniciar</button>
+                            <span class="scene-control-tooltip">Inicia la reproducción</span>
+                        </div>
+                        <div class="scene-control-group">
+                            <span class="scene-control-label">Editar</span>
+                            <div class="scene-control-buttons">
+                                <div class="scene-control-btn" title="Editar escena">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div class="scene-control-btn" title="Duplicar escena">
+                                    <i class="fas fa-copy"></i>
+                                </div>
+                                <div class="scene-control-btn" title="Eliminar escena">
+                                    <i class="fas fa-trash"></i>
+                                </div>
+                            </div>
+                            <span class="scene-control-tooltip">Opciones de edición</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="button-container">
+                    <div class="add-button">+</div>
+                    <div class="button-label">añadir escena</div>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <!-- Botones -->
+                <div class="button load-json" style="margin-top: 10px;">cargar</div>
+                <div class="button save-json">guardar</div>
+
+                <!-- Cuadros de información -->
+                <div class="emotion-box">
+                    <div class="emotion-title">Cuadro de emocion</div>
+                    <div class="emotion-content">
+                        <div class="emotion-emoji">😊</div>
+                    </div>
+                    <div class="emotion-name">Felicidad</div>
+                </div>
+
+                <div class="info-box">
+                    <p>nota de escena</p>
+                    <p>La escena actual muestra el inicio de la historia con una transición suave</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="scripts/scripts.js"></script>
+</body>
+
+</html>
